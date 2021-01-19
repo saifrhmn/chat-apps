@@ -1,0 +1,42 @@
+<header>
+  <div class="logo-container">
+    <h4 class="logo-label">Chat application</h4>
+  </div>
+  <nav>
+    <ul class="nav-links">
+      <li><a class="nav-link " routerLink="/registration" routerLinkActive="active" >Sign Up </a></li>
+      <li><a class="nav-link" routerLink="/login" routerLinkActive="active">Sign In</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+<div class="row m-auto">
+  <div class="col-md-6 offset-3">
+    <form [formGroup]="service.formModel" autocomplete="off" (submit)="onSubmit()">
+      
+      <div class="form-group required">
+        <label>FirstName</label>
+        <input class="form-control" formControlName="FirstName">
+        <label class="text-danger" *ngIf="service.formModel.get('FirstName').touched && service.formModel.get('FirstName').errors?.required">This field FirstName is required.</label>
+      </div>
+
+      <div class="form-group required" >
+        <label>LastName</label>
+        <input class="form-control" formControlName="LastName">
+        <label class="text-danger" *ngIf="service.formModel.get('LastName').touched && service.formModel.get('LastName').errors?.required">This field LastName is required.</label>
+      </div>
+
+      <div class="form-group required">
+        <label>Email</label>
+        <input class="form-control" formControlName="Email">
+        <label class="text-danger" *ngIf="service.formModel.get('Email').touched && service.formModel.get('Email').errors?.email && service.formModel.get('Email').errors?.required">Invalid email address.</label>
+        <label class="text-danger" *ngIf="service.formModel.get('Email').touched && service.formModel.get('Email').errors?.required">This field Email is required.</label>
+      </div>
+    
+      <div class="form-row">
+          <button type="submit" class="submit-button" [disabled]="!service.formModel.valid">Sign Up</button>
+      </div>
+    </form>
+  </div>
+</div>

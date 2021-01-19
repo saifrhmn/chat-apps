@@ -1,0 +1,27 @@
+<header>
+  <div class="logo-container">
+    <h4 class="logo-label">Chat application</h4>
+  </div>
+  <nav>
+    <ul class="nav-links">
+      <li><a class="nav-link " routerLink="/registration" routerLinkActive="active" >Sign Up </a></li>
+      <li><a class="nav-link" routerLink="/login" routerLinkActive="active">Sign In</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+<section>
+<div class="form-container">
+  <form #form='ngForm' class="form" autocomplete="off" (keydown.enter)="OnSubmit(form)" (submit)="onSubmit(form)">
+    <div class="form-group">
+      <label>Email</label>
+      <input class="form-control" #Email="ngModel" name="Email" [(ngModel)]="formModel.Email" required>
+    </div>
+    
+    <div class="form-row">
+        <button type="submit" class="submit-button" [disabled]="form.invalid">Login</button>
+    </div>
+  </form>
+</div>
+</section>
+</main>
